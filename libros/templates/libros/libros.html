@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block content %}
+       <div class="row  mb-2">
+          <div class="col-md-10"><h1>Listado de libros</h1></div>
+          <div class="col-md-2"><a class="btn btn-success" href="{% url 'crear-libro' %}" role="button">Crear Libro</a></div>
+       </div>       
+          <!-- informacion Ecnabezado  -->
+        <div class="row  bg-warning text-dark">
+            <div class="col-md-6"><h3>Titulo (En)</h3></div>
+            <div class="col-md-3"><h3>Titulo (Fr)</h3></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+          </div>
+          <!-- informacion detalle  -->
+{% for libro in libros  %}
+          <div class="row p-2 mb-2">
+            <div class="col-md-6 ">{{ libro.title_en }}</div>
+            <div class="col-md-3 ">{{ libro.title_fr }}</div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="{% url 'editar-libro' libro.id %}" role="button">Ver</a></div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Editar</a></div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Eliminar</a></div>
+          </div>
+{% endfor %}
+{% endblock %}

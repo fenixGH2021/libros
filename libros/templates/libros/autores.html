@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+       <div class="row  mb-2">
+          <div class="col-md-10"><h1>Listado de autores</h1></div>
+          <div class="col-md-2"><a class="btn btn-success" href="{% url 'crear-autor' %}" role="button">Crear Autor</a></div>
+       </div>       
+          <!-- informacion Ecnabezado  -->
+        <div class="row bg-warning text-dark">
+            <div class="col-md-6"><h2>Titulo</h2></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
+          </div>
+          <!-- informacion detalle  -->
+{% for autor in autores  %}
+          <div class="row  mb-2">
+            <div class="col-md-6 ">{{ autor.nombre }}</div>
+            <div class="col-md-3 ">{{ autor.email }}</div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Ver</a></div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Editar</a></div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Eliminar</a></div>
+          </div>
+{% endfor %}
+{% endblock %}

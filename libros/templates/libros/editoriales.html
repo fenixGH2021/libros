@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block content %}
+       <div class="row  mb-2">
+          <div class="col-md-7"><h1>Listado de editoriales</h1></div>
+          <div class="col-md-2"><a class="btn btn-success" href="{% url 'crear-editorial' %}" role="button">Crear Editorial</a></div>
+       </div>       
+          <!-- informacion Ecnabezado  -->
+        <div class="row bg-warning text-dark">
+            <div class="col-md-6"><h2>Titulo</h2></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+          </div>
+          <!-- informacion detalle  -->
+{% for editorial in editoriales  %}
+          <div class="row  mb-2">
+            <div class="col-md-6 ">{{ editorial.nombre }}</div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Ver</a></div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Editar</a></div>
+            <div class="col-md-1"><a class="btn btn-outline-secondary btn-sm" href="#" role="button">Eliminar</a></div>
+          </div>
+{% endfor %}
+{% endblock %}

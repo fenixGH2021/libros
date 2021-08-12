@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block content %}
+       <div class="row  mb-2">
+          <div class="col-md-9"><h1>{{ libro.title_en }}</h1></div>
+          <div class="col-md-1"><a class="btn btn-success" href="{% url 'libros' %}" role="button">Regresar</a></div>
+          <div class="col-md-1"><a class="btn btn-success" href="{% url 'crear-libro' %}" role="button">Crear Libro</a></div>
+       </div>       
+          <!-- informacion Ecnabezado  -->
+        <div class="row  bg-warning text-dark">
+            <div class="col-md-12"><h3>Titulo (En) : {{ libro.title_fr }}</h3></div>
+        </div>
+          <!-- informacion detalle  -->
+          <div class="row bg-secondary text-white">
+            <div class="col-md-6  m-2"><h4>Autores</h4></div>
+          </div>
+          {% for autor in libro.autor.all %}
+          <div class="row">
+            <div class="col-md-6 ">{{ autor.nombre }}</div>
+          </div>
+          {% endfor %}
+          <div class="row bg-secondary text-white">
+            <div class="col-md-6  m-2"><h4>Editoriales</h4></div>
+          </div>
+          {% for editorial in libro.editorial.all %}
+          <div class="row">
+            <div class="col-md-6 ">{{ editorial.nombre }}</div>
+          </div>
+          {% endfor %}
+{% endblock %}
